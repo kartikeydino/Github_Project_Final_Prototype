@@ -9,7 +9,7 @@
 [node name="game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_stp4v")]
-position = Vector2(0, -13)
+position = Vector2(0, -16)
 
 [node name="game" parent="." instance=ExtResource("2_io8us")]
 
