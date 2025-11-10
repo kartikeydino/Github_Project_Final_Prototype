@@ -47,10 +47,6 @@ func _physics_process(delta):
 		gun.position = Vector2(-14,3)
 		# Set direction when facing left
 		gun_direction = -1
-	
-	# 🛠️ New: If the player stops moving, the direction should stay the same (last direction moved)
-	# If you want it to revert to a default direction, change this logic.
-	# The current logic ensures gun_direction is set by the last movement.
 		
 	if direction:
 		velocity.x = direction * SPEED
@@ -73,11 +69,20 @@ func _physics_process(delta):
 		
 		var bullet_instance = bullet.instantiate()
 		
-		# 1. Set the bullet's direction property (for the bullet script to use)
-		bullet_instance.direction = gun_direction 
+		# --- FIX START ---
+		# Determine the spawn offset based on direction
+		# If facing right (1), use a positive X offset (12).
+		# If facing left (-1), use a negative X offset (-12).
+		var spawn_offset_x = 12 * gun_direction
+		var spawn_offset_y = -5 # Keep the Y offset constant
+		var spawn_offset = Vector2(spawn_offset_x, spawn_offset_y)
 		
-		# 2. Set the bullet's global position to the gun's global position
-		bullet_instance.global_position = gun.global_position + Vector2(12 or -12, -5)
+		# 1. Set the bullet's direction property (for the bullet script to use)
+		bullet_instance.direction = gun_direction
+		
+		# 2. Set the bullet's global position: gun's tip + directional offset
+		bullet_instance.global_position = gun.global_position + spawn_offset
+		# --- FIX END ---
 		
 		# 3. Add the bullet to the main scene tree (the player's parent)
 		get_parent().add_child(bullet_instance)

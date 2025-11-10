@@ -1,30 +1,28 @@
 extends Area2D
 
-var speed = 10 # How fast the bullet travels
-# This variable is crucial for movement and is set by the Player script
+var speed = 800
 var direction = 1 
-
-# 🛠️ NEW: Get the bullet's Sprite2D node
+var damage = 1 # Define how much damage this bullet does
 @onready var bullet_sprite = $Sprite2D
 
 func _ready():
-	# Makes the bullet ignore the camera and move globally
 	set_as_top_level(true)
-	
-	# 🎯 NEW: Flip the sprite horizontally if the direction is left (-1)
 	if direction == -1:
 		bullet_sprite.flip_h = true
-	# Note: If direction is 1 (right), flip_h remains false (default)
+	
+	# 🎯 NEW: Connect the collision signal
+	body_entered.connect(_on_body_entered) 
 
-# 🛠️ FIX: ADDING THE MOVEMENT CODE
 func _process(delta):
-	# Update the bullet's X position using (Speed * Direction * Time)
 	position.x += speed * direction * delta
 
-func _on_visible_on_screen_enabler_2d_screen_exited():
-	# Cleans up the bullet when it leaves the screen area
-	queue_free()
+# 🎯 NEW: Collision handler function
+func _on_body_entered(body):
+	# Check if the body that entered is an enemy and has the required function
+	if body.has_method("take_damage"):
+		body.take_damage(damage) # Deal damage to the enemy
+	
+	queue_free() # Destroy the bullet on hit
 
 func deal_damge():
-	# Logic for handling damage on impact goes here
-	pass
+	pass # This function is now deprecated, using _on_body_entered instead
