@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctojtks6xfkq2"]
+[gd_scene load_steps=6 format=3 uid="uid://ctojtks6xfkq2"]
 
 [ext_resource type="Texture2D" uid="uid://jr024f16wbok" path="res://images/tileset final futuristic.PNG" id="1_evba4"]
 [ext_resource type="PackedScene" uid="uid://oj54owqlopb8" path="res://scenes/enemy.tscn" id="2_6eb6b"]
@@ -802,12 +802,6 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_xryjt")
 sources/2 = SubResource("TileSetAtlasSource_hp68q")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_67f8v"]
-size = Vector2(20, 218)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_24mvh"]
-size = Vector2(446, 20)
-
 [node name="level_1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -817,13 +811,3 @@ layer_0/tile_data = PackedInt32Array(65534, 131073, 3, 65535, 131073, 3, 0, 1310
 
 [node name="enemy" parent="." instance=ExtResource("2_6eb6b")]
 position = Vector2(128, -6)
-
-[node name="collisions" type="StaticBody2D" parent="."]
-
-[node name="left" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-107, -77)
-shape = SubResource("RectangleShape2D_67f8v")
-
-[node name="top" type="CollisionShape2D" parent="collisions"]
-position = Vector2(126, -176)
-shape = SubResource("RectangleShape2D_24mvh")
