@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://oj54owqlopb8"]
+[gd_scene load_steps=7 format=3 uid="uid://oj54owqlopb8"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_2qek6"]
 [ext_resource type="Texture2D" uid="uid://yoyupne2pv0x" path="res://images/crab.png" id="1_4muf3"]
+[ext_resource type="PackedScene" uid="uid://bjg0runvudcxx" path="res://scenes/killzone.tscn" id="3_lmrln"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jb1pp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0hqe"]
 size = Vector2(178.824, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lm5a2"]
+height = 32.9412
 
 [node name="enemy" type="CharacterBody2D"]
 scale = Vector2(0.85, 0.85)
@@ -26,6 +30,12 @@ shape = SubResource("CapsuleShape2D_jb1pp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_y0hqe")
+
+[node name="killzone" parent="." instance=ExtResource("3_lmrln")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lm5a2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -8,11 +8,14 @@ const JUMP_VELOCITY = -300.0
 var jump_count = 0
 var max_jumps = 2
 
+# --- NEW: Coin Counter ---
+var coins = 0
+
 var bullet = preload("res://scenes/bullet.tscn")
 var gun_equipped = false
-# 🛠️ FIX 2: Set gun_cooldown to true so the player can fire initially
+# Set gun_cooldown to true so the player can fire initially
 var gun_cooldown = true
-# 🛠️ FIX 1: Initialize gun_direction to 1 (right)
+# Initialize gun_direction to 1 (right)
 var gun_direction = 1 
 var bullet_pos = Input.get_axis("left", "right")
 
@@ -69,8 +72,7 @@ func _physics_process(delta):
 		
 		var bullet_instance = bullet.instantiate()
 		
-		# --- FIX START ---
-		# Determine the spawn offset based on direction
+		# --- FIX START: Calculate dynamic spawn offset based on gun_direction ---
 		# If facing right (1), use a positive X offset (12).
 		# If facing left (-1), use a negative X offset (-12).
 		var spawn_offset_x = 12 * gun_direction
@@ -92,3 +94,8 @@ func _physics_process(delta):
 
 func player():
 	pass
+
+# --- NEW: Function called by the Coin ---
+func collect_coin(amount):
+	coins += amount
+	print("Coin collected! Total coins: " + str(coins))

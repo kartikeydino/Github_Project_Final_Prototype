@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctojtks6xfkq2"]
+[gd_scene load_steps=7 format=3 uid="uid://ctojtks6xfkq2"]
 
 [ext_resource type="Texture2D" uid="uid://jr024f16wbok" path="res://images/tileset final futuristic.PNG" id="1_evba4"]
 [ext_resource type="PackedScene" uid="uid://oj54owqlopb8" path="res://scenes/enemy.tscn" id="2_6eb6b"]
+[ext_resource type="PackedScene" uid="uid://dopc1mt4bp88i" path="res://scenes/coin.tscn" id="3_6wwhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xryjt"]
 texture = ExtResource("1_evba4")
@@ -811,3 +812,9 @@ layer_0/tile_data = PackedInt32Array(65534, 131073, 3, 65535, 131073, 3, 0, 1310
 
 [node name="enemy" parent="." instance=ExtResource("2_6eb6b")]
 position = Vector2(128, -6)
+
+[node name="coin1" parent="." instance=ExtResource("3_6wwhn")]
+position = Vector2(42, -44)
+
+[node name="coin2" parent="." instance=ExtResource("3_6wwhn")]
+position = Vector2(218, -44)
