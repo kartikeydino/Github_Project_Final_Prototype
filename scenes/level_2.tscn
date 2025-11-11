@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbg6da4heteqc"]
+
+[ext_resource type="TileSet" uid="uid://dgk8uhadepjt1" path="res://tileset.tres" id="1_otpfi"]
+[ext_resource type="PackedScene" uid="uid://dopc1mt4bp88i" path="res://scenes/coin.tscn" id="2_bkw8l"]
+[ext_resource type="PackedScene" uid="uid://oj54owqlopb8" path="res://scenes/enemy.tscn" id="3_6w8kp"]
+
+[node name="level_2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_otpfi")
+format = 2
+layer_0/tile_data = PackedInt32Array(-14, 131073, 3, 65522, 131073, 1, -13, 131073, 3, 65523, 131073, 1, -12, 131073, 3, 65524, 131073, 1, -11, 131073, 3, 65525, 131073, 1, -10, 131073, 3, 65526, 131073, 1, -9, 131073, 3, 65527, 131073, 1, -8, 131073, 3, 65528, 131073, 1, -7, 131073, 3, 65529, 131073, 1, -6, 131073, 3, 65530, 131073, 1, -5, 131073, 3, 65531, 131073, 1, -4, 131073, 3, 65532, 131073, 1, -3, 131073, 3, 65533, 131073, 1, -2, 131073, 3, 65534, 131073, 1, -1, 131073, 3, 65535, 131073, 1, -65536, 131073, 3, 0, 131073, 1, -65535, 131073, 3, 1, 131073, 1, -65534, 131073, 3, 2, 131073, 1, -65533, 131073, 3, 3, 131073, 1, -65532, 131073, 3, 4, 131073, 1, -65531, 131073, 3, 5, 131073, 1, -65530, 131073, 3, 6, 131073, 1, -65529, 131073, 3, 7, 131073, 1, -65528, 131073, 3, 8, 131073, 1, -65527, 131073, 3, 9, 131073, 1, -65526, 131073, 3, 10, 131073, 1, -65525, 131073, 3, 11, 131073, 1, -65524, 131073, 3, 12, 131073, 1, -65523, 131073, 3, 13, 131073, 1, -196614, 524290, 32, -196613, 851970, 32, -196612, 851970, 32, -196611, 851970, 32, -327672, 524290, 32, -327671, 851970, 32, -327670, 851970, 32, -327669, 851970, 32)
+
+[node name="coin" parent="." instance=ExtResource("2_bkw8l")]
+position = Vector2(-62, -62)
+
+[node name="enemy" parent="." instance=ExtResource("3_6w8kp")]
+position = Vector2(125, -24)
+
+[node name="enemy2" parent="." instance=ExtResource("3_6w8kp")]
+position = Vector2(-39, -22)
+scale = Vector2(0.7225, 0.7225)

@@ -10,6 +10,7 @@
 size = Vector2(178.824, 20)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lm5a2"]
+radius = 10.5882
 height = 32.9412
 
 [node name="enemy" type="CharacterBody2D"]
