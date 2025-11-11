@@ -6,7 +6,7 @@ extends CharacterBody2D
 const SPEED = 230.0
 const JUMP_VELOCITY = -300.0
 var jump_count = 0
-var max_jumps = 2
+var max_jumps = 1
 
 # --- NEW: Coin Counter ---
 var coins = 0

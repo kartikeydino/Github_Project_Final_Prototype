@@ -1,0 +1,14 @@
+[
+    {
+        "name": "NPC",
+        "text": "Oh, thank you so much! You saved me from those evil, claw-snapping crabs!"
+    },
+    {
+        "name": "You",
+        "text": "You're welcome. Glad I could help with your crab problem."
+    },
+    {
+        "name": "NPC",
+        "text": "I can finally relax. Maybe I'll start a nice, crab-free fishing trip."
+    }
+]

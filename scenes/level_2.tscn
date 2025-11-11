@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbg6da4heteqc"]
+[gd_scene load_steps=5 format=3 uid="uid://cbg6da4heteqc"]
 
 [ext_resource type="TileSet" uid="uid://dgk8uhadepjt1" path="res://tileset.tres" id="1_otpfi"]
 [ext_resource type="PackedScene" uid="uid://dopc1mt4bp88i" path="res://scenes/coin.tscn" id="2_bkw8l"]
 [ext_resource type="PackedScene" uid="uid://oj54owqlopb8" path="res://scenes/enemy.tscn" id="3_6w8kp"]
+[ext_resource type="PackedScene" uid="uid://bb0vlncipuw10" path="res://scenes/npc.tscn" id="4_jwj2s"]
 
 [node name="level_2" type="Node2D"]
 
@@ -19,3 +20,6 @@ position = Vector2(81, -23)
 
 [node name="enemy2" parent="." instance=ExtResource("3_6w8kp")]
 position = Vector2(-128, -24)
+
+[node name="NPC" parent="." instance=ExtResource("4_jwj2s")]
+position = Vector2(157, -84)

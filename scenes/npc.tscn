@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb0vlncipuw10"]
+
+[ext_resource type="Script" path="res://dialogue/npc.gd" id="1_gsop0"]
+[ext_resource type="Texture2D" uid="uid://bwn15uxtgd1f" path="res://icon.svg" id="1_ka3lg"]
+[ext_resource type="PackedScene" uid="uid://dg2h07rnsln4i" path="res://scenes/dialogue.tscn" id="3_aapsn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wac0y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xontf"]
+height = 40.0
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_gsop0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.603922, 0.992157, 1)
+scale = Vector2(0.156, 0.156)
+texture = ExtResource("1_ka3lg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wac0y")
+
+[node name="ChatDetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChatDetectionArea"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xontf")
+
+[node name="Dialogue" parent="." instance=ExtResource("3_aapsn")]
+
+[connection signal="body_entered" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_entered"]
+[connection signal="body_exited" from="ChatDetectionArea" to="." method="_on_chat_detection_area_body_exited"]

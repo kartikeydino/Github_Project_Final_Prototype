@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg2h07rnsln4i"]
+
+[ext_resource type="Script" path="res://dialogue/DialogPlayer.gd" id="1_pbuta"]
+[ext_resource type="Texture2D" uid="uid://bcjmxi1p4vm4m" path="res://dialogue/dilaoguebox.png" id="2_6o4y7"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 50.0
+script = ExtResource("1_pbuta")
+dialogue_file = "res://dialogue/NPC_dialog.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -61.0
+offset_right = 40.0
+offset_bottom = -11.0
+texture = ExtResource("2_6o4y7")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="NameLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 87.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+text = "Name:"
+
+[node name="TextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 196.0
+offset_bottom = 107.0
+scale = Vector2(0.4, 0.4)
+text = "Text:"
