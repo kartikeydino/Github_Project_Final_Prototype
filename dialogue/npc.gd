@@ -14,6 +14,7 @@ var is_player_in_chat_zone: bool = false
 var is_chatting: bool = false
 var player = null
 
+
 # ----------------------------------------------------
 # 2. INITIALIZATION & SETUP
 # ----------------------------------------------------
@@ -27,7 +28,7 @@ func _ready():
 	
 	# Optional: Display the initial idle animation (if you have one)
 	# If using Sprite2D, no need to play animation.
-	if variables.death_count >= 1:
+	if variables.death_count >= 1 and variables.talked:
 		queue_free()
 
 # ----------------------------------------------------
@@ -51,9 +52,8 @@ func _on_dialogue_finished():
 	# Return NPC state to normal
 	is_chatting = false
 	variables.max_jumps = 2
-	self.visible = false
-	$ChatDetectionArea/CollisionShape2D.disabled = true
-	$CollisionShape2D.disabled = true
+	variables.talked = true
+	queue_free()
 # ----------------------------------------------------
 # 4. CHAT DETECTION AREA SIGNALS
 # ----------------------------------------------------

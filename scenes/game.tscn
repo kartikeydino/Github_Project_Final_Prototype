@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://dw68ml82g4owk" path="res://scenes/level_3.tscn" id="4_4gnmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt20y"]
-size = Vector2(20, 218)
+size = Vector2(20, 238)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4tcb"]
-size = Vector2(1345, 20)
+size = Vector2(1344.5, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b54mi"]
-size = Vector2(30.5, 217)
+size = Vector2(30.5, 237)
 
 [node name="game" type="Node2D"]
 
@@ -24,15 +24,15 @@ position = Vector2(0, -16)
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="left" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-107, -77)
+position = Vector2(-107, -87)
 shape = SubResource("RectangleShape2D_qt20y")
 
 [node name="top" type="CollisionShape2D" parent="collisions"]
-position = Vector2(575.5, -176)
+position = Vector2(575.25, -196)
 shape = SubResource("RectangleShape2D_j4tcb")
 
 [node name="right" type="CollisionShape2D" parent="collisions"]
-position = Vector2(1263, -77.5)
+position = Vector2(1263, -87.5)
 shape = SubResource("RectangleShape2D_b54mi")
 
 [node name="level_2" parent="." instance=ExtResource("3_w7pmj")]

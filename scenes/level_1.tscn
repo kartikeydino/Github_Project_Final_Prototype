@@ -16,6 +16,8 @@ position = Vector2(128, -6)
 
 [node name="coin1" parent="." instance=ExtResource("3_6wwhn")]
 position = Vector2(42, -44)
+number = 1
 
 [node name="coin2" parent="." instance=ExtResource("3_6wwhn")]
 position = Vector2(218, -44)
+number = 2
