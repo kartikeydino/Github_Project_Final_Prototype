@@ -23,7 +23,7 @@ var is_dialogue_active: bool = false
 var is_typing: bool = false
 
 # --- Typing Speed ---
-const TYPING_SPEED: float = 0.05 # Seconds per character
+const TYPING_SPEED: float = 0.02 # Seconds per character
 
 # ----------------------------------------------------
 # 2. Initialization and Start
