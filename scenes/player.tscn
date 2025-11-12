@@ -27,6 +27,6 @@ offset = Vector2(10, 0)
 zoom = Vector2(3, 3)
 limit_left = -106
 limit_top = -160
-limit_right = 800
+limit_right = 1248
 limit_bottom = 32
 limit_smoothed = true

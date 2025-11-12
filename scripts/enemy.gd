@@ -7,7 +7,7 @@ var damage = 1 # Damage the enemy deals (if needed)
 
 # Patrol boundaries
 var starting_x = 0.0 # Will be set in _ready()
-const DISTANCE_TO_TRAVEL = 100 # How far to walk (100 pixels each way)
+@export var DISTANCE_TO_TRAVEL: int = 100 # How far to walk (100 pixels each way)
 var move_direction = 1 # 1 = right, -1 = left (starts moving right)
 
 # Get the gravity from the project settings
