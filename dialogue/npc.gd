@@ -49,7 +49,7 @@ func start_chat():
 func _on_dialogue_finished():
 	# Return NPC state to normal
 	is_chatting = false
-
+	variables.max_jumps = 2
 # ----------------------------------------------------
 # 4. CHAT DETECTION AREA SIGNALS
 # ----------------------------------------------------
@@ -65,3 +65,4 @@ func _on_chat_detection_area_body_exited(body: Node2D):
 		is_player_in_chat_zone = false
 		player = null
 		print("Player exited chat zone.")
+		

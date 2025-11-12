@@ -6,7 +6,6 @@ extends CharacterBody2D
 const SPEED = 230.0
 const JUMP_VELOCITY = -300.0
 var jump_count = 0
-var max_jumps = 1
 
 # --- NEW: Coin Counter ---
 var coins = 0
@@ -33,7 +32,7 @@ func _physics_process(delta):
 		jump_count = 0
 		
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
+	if Input.is_action_just_pressed("jump") and jump_count < variables.max_jumps:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 
