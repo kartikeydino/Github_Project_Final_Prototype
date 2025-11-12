@@ -50,6 +50,9 @@ func _on_dialogue_finished():
 	# Return NPC state to normal
 	is_chatting = false
 	variables.max_jumps = 2
+	self.visible = false
+	$ChatDetectionArea/CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = true
 # ----------------------------------------------------
 # 4. CHAT DETECTION AREA SIGNALS
 # ----------------------------------------------------
