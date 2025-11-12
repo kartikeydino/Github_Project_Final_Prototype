@@ -27,7 +27,8 @@ func _ready():
 	
 	# Optional: Display the initial idle animation (if you have one)
 	# If using Sprite2D, no need to play animation.
-
+	if variables.death_count >= 1:
+		queue_free()
 
 # ----------------------------------------------------
 # 3. INPUT & DIALOGUE TRIGGER

@@ -14,3 +14,5 @@ func _on_body_entered(body):
 # This is equivalent to connecting the signal in the editor
 func _ready():
 	body_entered.connect(_on_body_entered)
+	if variables.death_count >= 1:
+		queue_free()
