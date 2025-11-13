@@ -22,3 +22,4 @@ number = 5
 [node name="enemy" parent="." instance=ExtResource("3_cwckd")]
 position = Vector2(92, -120)
 DISTANCE_TO_TRAVEL = 35
+level_number = 3

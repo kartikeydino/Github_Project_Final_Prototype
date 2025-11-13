@@ -19,9 +19,11 @@ number = 3
 
 [node name="enemy" parent="." instance=ExtResource("3_6w8kp")]
 position = Vector2(81, -23)
+level_number = 2
 
 [node name="enemy2" parent="." instance=ExtResource("3_6w8kp")]
 position = Vector2(-128, -24)
+level_number = 2
 
 [node name="NPC" parent="." instance=ExtResource("4_jwj2s")]
 position = Vector2(157, -84)

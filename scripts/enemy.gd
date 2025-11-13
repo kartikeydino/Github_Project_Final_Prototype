@@ -8,6 +8,7 @@ var damage = 1 # Damage the enemy deals (if needed)
 # Patrol boundaries
 var starting_x = 0.0 # Will be set in _ready()
 @export var DISTANCE_TO_TRAVEL: int = 100 # How far to walk (100 pixels each way)
+@export var level_number: int = 1
 var move_direction = 1 # 1 = right, -1 = left (starts moving right)
 
 # Get the gravity from the project settings
@@ -29,6 +30,7 @@ func take_damage(damage_amount):
 		queue_free() # Destroys the enemy node
 
 func _physics_process(delta):
+	
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -46,6 +48,7 @@ func _physics_process(delta):
 		enemy_sprite.flip_h = false # Optional: Flip sprite to face right
 		
 	# 3. Apply the calculated velocity
+
 	velocity.x = move_direction * SPEED
 	
 	move_and_slide()

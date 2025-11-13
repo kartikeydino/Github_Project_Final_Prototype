@@ -22,6 +22,7 @@ func _physics_process(delta):
 
 func _on_player_detection_area_body_entered(body):
 	if body.has_method("player"):
+		variables.level_2_discovered = true
 		player = body
 		if !has_player_entered_area:
 			has_player_entered_area = true
@@ -29,6 +30,7 @@ func _on_player_detection_area_body_entered(body):
 			
 			
 func cutsceneopening():
+	
 	is_opening_cutscene = true
 	animplayer.play("cover_fade")
 	player.camera.enabled = false
