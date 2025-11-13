@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
 @onready var gun = $gun
+@onready var camera = $Camera2D
 
 const SPEED = 230.0
 const JUMP_VELOCITY = -300.0

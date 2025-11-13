@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://moit5qvxu33j"]
+
+[ext_resource type="Script" path="res://scripts/cutscene1-2.gd" id="1_rdbo2"]
+
+[sub_resource type="Animation" id="Animation_75emg"]
+resource_name = "cover_fade"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.784314), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wnlu6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.784314)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0j8ya"]
+_data = {
+"RESET": SubResource("Animation_wnlu6"),
+"cover_fade": SubResource("Animation_75emg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gujog"]
+size = Vector2(20, 237)
+
+[sub_resource type="Curve2D" id="Curve2D_05kct"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 10, 42, 0, 0, 0, 0, 353, 42)
+}
+point_count = 2
+
+[node name="cutscene1-2" type="Node2D"]
+script = ExtResource("1_rdbo2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -77.0
+offset_right = 448.0
+offset_bottom = 160.0
+color = Color(0, 0, 0, 0.784314)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0j8ya")
+}
+
+[node name="player_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection_area"]
+position = Vector2(10, 41.5)
+shape = SubResource("RectangleShape2D_gujog")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, 64)
+curve = SubResource("Curve2D_05kct")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(10, 42)
+loop = false
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D"]
+zoom = Vector2(6, 6)
+
+[connection signal="body_entered" from="player_detection_area" to="." method="_on_player_detection_area_body_entered"]
