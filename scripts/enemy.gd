@@ -38,18 +38,19 @@ func _physics_process(delta):
 	# --- PATROL LOGIC ---
 	
 	# 1. Check if we reached the right boundary
-	if position.x >= starting_x + DISTANCE_TO_TRAVEL:
+	if position.x >= starting_x + DISTANCE_TO_TRAVEL and variables.levels_discovered >= level_number:
 		move_direction = -1 # Change direction to left
 		enemy_sprite.flip_h = true # Optional: Flip sprite to face left
 	
 	# 2. Check if we reached the left boundary
-	elif position.x <= starting_x - DISTANCE_TO_TRAVEL:
+	elif position.x <= starting_x - DISTANCE_TO_TRAVEL and variables.levels_discovered >= level_number:
 		move_direction = 1 # Change direction to right
 		enemy_sprite.flip_h = false # Optional: Flip sprite to face right
 		
 	# 3. Apply the calculated velocity
 
-	velocity.x = move_direction * SPEED
+	if variables.levels_discovered>= level_number:
+		velocity.x = move_direction * SPEED
 	
 	move_and_slide()
 

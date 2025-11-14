@@ -5,4 +5,5 @@ var max_jumps = 1
 var death_count = 0
 var talked = false
 
-var level_2_discovered = false
+var levels_discovered: int = 1
+var player_speed: int = 230

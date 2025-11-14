@@ -29,7 +29,6 @@ shape = SubResource("CapsuleShape2D_jb1pp")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_y0hqe")
 
 [node name="killzone" parent="." instance=ExtResource("3_lmrln")]

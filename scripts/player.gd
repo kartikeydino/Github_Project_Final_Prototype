@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var gun = $gun
 @onready var camera = $Camera2D
 
-const SPEED = 230.0
+
 const JUMP_VELOCITY = -300.0
 var jump_count = 0
 
@@ -52,9 +52,9 @@ func _physics_process(delta):
 		gun_direction = -1
 		
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * variables.player_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, variables.player_speed)
 
 	move_and_slide()
 

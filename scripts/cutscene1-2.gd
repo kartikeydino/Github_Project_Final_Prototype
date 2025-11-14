@@ -16,13 +16,11 @@ func _physics_process(delta):
 		
 		if is_path_following:
 			pathfollower.progress_ratio += 0.005
-			
 			if pathfollower.progress_ratio >= 1:
 				cutsceneending()
 
 func _on_player_detection_area_body_entered(body):
 	if body.has_method("player"):
-		variables.level_2_discovered = true
 		player = body
 		if !has_player_entered_area:
 			has_player_entered_area = true
@@ -30,7 +28,7 @@ func _on_player_detection_area_body_entered(body):
 			
 			
 func cutsceneopening():
-	
+	variables.player_speed = 0
 	is_opening_cutscene = true
 	animplayer.play("cover_fade")
 	player.camera.enabled = false
@@ -39,6 +37,8 @@ func cutsceneopening():
 
 
 func cutsceneending():
+	variables.levels_discovered = 2
+	variables.player_speed = 230
 	is_opening_cutscene = false
 	is_path_following = false
 	camera.enabled = false
