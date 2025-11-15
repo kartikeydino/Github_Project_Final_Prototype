@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw68ml82g4owk"]
+[gd_scene load_steps=5 format=3 uid="uid://dw68ml82g4owk"]
 
 [ext_resource type="TileSet" uid="uid://dgk8uhadepjt1" path="res://tileset.tres" id="1_i8bmq"]
 [ext_resource type="PackedScene" uid="uid://dopc1mt4bp88i" path="res://scenes/coin.tscn" id="2_c17sr"]
 [ext_resource type="PackedScene" uid="uid://oj54owqlopb8" path="res://scenes/enemy.tscn" id="3_cwckd"]
+[ext_resource type="PackedScene" uid="uid://bimlmk2d80ex3" path="res://scenes/cutscene_2_3.tscn" id="4_few6e"]
 
 [node name="level_3" type="Node2D"]
 
@@ -23,3 +24,6 @@ number = 5
 position = Vector2(92, -120)
 DISTANCE_TO_TRAVEL = 35
 level_number = 3
+
+[node name="cutscene_2_3" parent="." instance=ExtResource("4_few6e")]
+position = Vector2(-208, -128)
