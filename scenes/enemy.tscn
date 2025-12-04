@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://oj54owqlopb8"]
+[gd_scene load_steps=8 format=3 uid="uid://oj54owqlopb8"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_2qek6"]
 [ext_resource type="Texture2D" uid="uid://yoyupne2pv0x" path="res://images/crab.png" id="1_4muf3"]
 [ext_resource type="PackedScene" uid="uid://bjg0runvudcxx" path="res://scenes/killzone.tscn" id="3_lmrln"]
+[ext_resource type="Texture2D" uid="uid://b1laplh8xowtr" path="res://images/hwaet.png" id="4_2xerl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jb1pp"]
 
@@ -22,7 +23,7 @@ position = Vector2(-1, 0)
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("1_4muf3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitArea" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jb1pp")
 
@@ -36,6 +37,23 @@ shape = SubResource("RectangleShape2D_y0hqe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_lm5a2")
+
+[node name="hearts" type="Node2D" parent="."]
+
+[node name="heart1" type="Sprite2D" parent="hearts"]
+position = Vector2(10.5882, -14.1176)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_2xerl")
+
+[node name="heart2" type="Sprite2D" parent="hearts"]
+position = Vector2(-7.10543e-15, -14.1176)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_2xerl")
+
+[node name="heart3" type="Sprite2D" parent="hearts"]
+position = Vector2(-10.5882, -14.1176)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("4_2xerl")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

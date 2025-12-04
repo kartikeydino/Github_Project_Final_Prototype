@@ -44,9 +44,9 @@ size = Vector2(20, 237)
 
 [sub_resource type="Curve2D" id="Curve2D_05kct"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 10, 42, 0, 0, 0, 0, 353, 42)
+"points": PackedVector2Array(0, 0, 0, 0, 10, 42, 0, 0, 0, 0, 353, 42, 0, 0, 0, 0, 11, 75)
 }
-point_count = 2
+point_count = 3
 
 [node name="cutscene1-2" type="Node2D"]
 script = ExtResource("1_rdbo2")
@@ -69,7 +69,7 @@ position = Vector2(10, 41.5)
 shape = SubResource("RectangleShape2D_gujog")
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(0, 64)
+position = Vector2(0, 3)
 curve = SubResource("Curve2D_05kct")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
