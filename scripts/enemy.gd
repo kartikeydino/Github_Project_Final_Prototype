@@ -14,6 +14,9 @@ var move_direction = 1 # 1 = right, -1 = left (starts moving right)
 # Get the gravity from the project settings
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var enemy_sprite = $Sprite2D # Assuming your enemy has a Sprite2D child
+@onready var heart1 = $hearts/heart
+@onready var heart2 = $hearts/heart2
+@onready var heart3 = $hearts/heart3
 
 # This function runs when the enemy enters the scene tree
 func _ready():
@@ -51,7 +54,12 @@ func _physics_process(delta):
 
 	if variables.levels_discovered>= level_number:
 		velocity.x = move_direction * SPEED
-	
+	if health == 2:
+		heart1.visible = false
+	if health == 1:
+		heart2.visible = false
+	if health == 0:
+		heart3.visible = false
 	move_and_slide()
 
 
