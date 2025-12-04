@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://7y3nggd3g2wp"]
+[gd_scene load_steps=10 format=3 uid="uid://7y3nggd3g2wp"]
 
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_kt3jf"]
 [ext_resource type="PackedScene" uid="uid://ctojtks6xfkq2" path="res://scenes/level_1.tscn" id="2_io8us"]
 [ext_resource type="PackedScene" uid="uid://lnwsvasuetke" path="res://scenes/player.tscn" id="2_stp4v"]
 [ext_resource type="PackedScene" uid="uid://cbg6da4heteqc" path="res://scenes/level_2.tscn" id="3_w7pmj"]
 [ext_resource type="PackedScene" uid="uid://dw68ml82g4owk" path="res://scenes/level_3.tscn" id="4_4gnmx"]
+[ext_resource type="PackedScene" uid="uid://byr7pn5utuvva" path="res://scenes/health_bar.tscn" id="6_42h0s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qt20y"]
 size = Vector2(20, 238)
@@ -15,6 +17,7 @@ size = Vector2(1344.5, 20)
 size = Vector2(30.5, 237)
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_kt3jf")
 
 [node name="Player" parent="." instance=ExtResource("2_stp4v")]
 position = Vector2(0, -16)
@@ -40,3 +43,7 @@ position = Vector2(576, 16)
 
 [node name="level_3" parent="." instance=ExtResource("4_4gnmx")]
 position = Vector2(1008, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("6_42h0s")]

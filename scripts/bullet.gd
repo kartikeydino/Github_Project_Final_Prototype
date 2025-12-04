@@ -26,3 +26,4 @@ func _on_body_entered(body):
 
 func deal_damge():
 	pass # This function is now deprecated, using _on_body_entered instead
+
