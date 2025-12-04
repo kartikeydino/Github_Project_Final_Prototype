@@ -4,10 +4,6 @@ extends CharacterBody2D
 @onready var gun = $gun
 @onready var camera = $Camera2D
 
-# --- HEALTH VARIABLES ---
-var max_health = 5
-var health = max_health
-signal health_changed(new_health, max_health)
 
 const JUMP_VELOCITY = -300.0
 var jump_count = 0
@@ -19,16 +15,13 @@ var bullet = preload("res://scenes/bullet.tscn")
 var gun_equipped = false
 # Set gun_cooldown to true so the player can fire initially
 var gun_cooldown = true
-var gun_direction = 1
-
+# Initialize gun_direction to 1 (right)
+var gun_direction = 1 
 var bullet_pos = Input.get_axis("left", "right")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _ready():
-	# Emit the initial health value when the player spawns
-	emit_signal("health_changed", health, max_health)
 
 func _physics_process(delta):
 	
@@ -101,26 +94,6 @@ func _physics_process(delta):
 
 func player():
 	pass
-
-# --- NEW: Function to handle incoming damage ---
-func take_damage(damage_amount):
-	health -= damage_amount
-	health = max(0, health) # Prevent health from going below zero
-	print("Player took damage. Health remaining: " + str(health))
-	
-	# Signal the UI to update the health bar
-	emit_signal("health_changed", health, max_health)
-	
-	if health <= 0:
-		die()
-
-# --- NEW: Function to handle player death ---
-func die():
-	print("Player Died!")
-	# Reload scene logic (from your killzone script)
-	get_tree().reload_current_scene()
-	variables.death_count += 1
-	variables.levels_discovered = 1
 
 # --- NEW: Function called by the Coin ---
 func collect_coin(amount):
