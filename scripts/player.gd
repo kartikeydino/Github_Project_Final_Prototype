@@ -8,7 +8,6 @@ extends CharacterBody2D
 const JUMP_VELOCITY = -300.0
 var jump_count = 0
 
-# --- NEW: Coin Counter ---
 var coins = 0
 
 var bullet = preload("res://scenes/bullet.tscn")
@@ -24,7 +23,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	
+	if variables.player_health <= 0:
+		get_tree().reload_current_scene()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -99,3 +99,13 @@ func player():
 func collect_coin(amount):
 	coins += amount
 	print("Coin collected! Total coins: " + str(coins))
+
+func take_damage(damage):
+	variables.player_health -= damage
+
+func death():
+	variables.death_count += 1
+	visible = false
+	await get_tree().create_timer(1).timeout
+	get_tree().reload_current_scene()
+	variables.player_health = 100
