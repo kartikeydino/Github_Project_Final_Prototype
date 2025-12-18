@@ -24,7 +24,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
 	if variables.player_health <= 0:
-		get_tree().reload_current_scene()
+		death()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -100,7 +100,7 @@ func collect_coin(amount):
 	coins += amount
 	print("Coin collected! Total coins: " + str(coins))
 
-func take_damage(damage):
+func take_damage(damage: int):
 	variables.player_health -= damage
 
 func death():
