@@ -12,3 +12,4 @@ func _process(delta):
 	label.text = "Health = " + str(variables.player_health)
 	if Input.is_action_just_pressed("d"):
 		get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+		variables.player_position = Vector2($Player.global_position)

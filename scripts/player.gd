@@ -109,3 +109,6 @@ func death():
 	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
 	variables.player_health = 100
+
+func come_back_to_main():
+	pass
