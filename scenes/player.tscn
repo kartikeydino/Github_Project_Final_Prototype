@@ -1,10 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://lnwsvasuetke"]
+[gd_scene load_steps=9 format=3 uid="uid://lnwsvasuetke"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_2umyu"]
+[ext_resource type="Script" uid="uid://dgn5b6ct7k30r" path="res://scripts/player.gd" id="1_2umyu"]
 [ext_resource type="Texture2D" uid="uid://bwn15uxtgd1f" path="res://icon.svg" id="2_5cycq"]
 [ext_resource type="Texture2D" uid="uid://bbu7jciuecgx" path="res://images/gun.png" id="3_3mf40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0bcu"]
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "ladder_size1_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1681, 0), Vector2(1681, 100)]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "ladder_size1_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1681, 91), Vector2(1681, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
+_data = {
+&"RESET": SubResource("Animation_dqkch"),
+&"ladder_size1_down": SubResource("Animation_qhqgy"),
+&"ladder_size1_up": SubResource("Animation_qlg0r")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_2umyu")
@@ -27,6 +79,11 @@ offset = Vector2(10, 0)
 zoom = Vector2(3, 3)
 limit_left = -106
 limit_top = -160
-limit_right = 1248
+limit_right = 1711
 limit_bottom = 32
 limit_smoothed = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qlg0r")
+}
